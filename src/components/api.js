@@ -20,3 +20,14 @@ export const post = (endpoint, data, token) => {
     }
   });
 };
+
+export const put = (endpoint, data, token) => {
+  return fetch(`${baseUrl}${endpoint}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "content-type": "application/json"
+    }
+  });
+};
