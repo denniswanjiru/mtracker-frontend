@@ -18,7 +18,7 @@ export const post = (endpoint, data, token) => {
       Authorization: `Bearer ${token}`,
       "content-type": "application/json"
     }
-  });
+  }).then(res => res.json());;
 };
 
 export const put = (endpoint, data, token) => {
@@ -29,5 +29,15 @@ export const put = (endpoint, data, token) => {
       Authorization: `Bearer ${token}`,
       "content-type": "application/json"
     }
-  });
+  }).then(res => res.json());;
+};
+
+export const delete = (endpoint, data, token) => {
+  return fetch(`${baseUrl}${endpoint}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "content-type": "application/json"
+    }
+  }).then(res => res.json());;
 };
